@@ -7,7 +7,7 @@ function Logo() {
         height={40}
         className="rounded-full border-white border-2 filter grayscale hover:grayscale-0  transition duration-200 ease-in-out"
       />
-      <p className="text-lg font-sans">Hi, I'm Software Engineer !</p>
+      <p className="text-lg font-sans">Hi, Namaste 🙏</p>
     </div>
   );
 }

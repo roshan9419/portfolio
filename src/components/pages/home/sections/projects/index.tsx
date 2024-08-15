@@ -1,15 +1,14 @@
 import { useState } from "react";
-import UnderlineText from "../../../../common/underline-text";
 import ProjectDetail from "./detail";
 import ProjectSlider from "./slider";
 import { Projects } from "./data";
+import SectionWrapper from "../section-wrapper";
 
 export default function ProjectsSection() {
   const [currentProject, setCurrentProject] = useState(Projects[0]);
 
   return (
-    <div className="w-full h-screen p-10">
-      <UnderlineText text="Projects" />
+    <SectionWrapper sectionName="Projects" className="bg-slate-900 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-90">
       <div className="mt-20 gap-6 flex justify-between items-center px-14 max-lg:flex-col">
         <ProjectDetail project={currentProject} />
         <ProjectSlider
@@ -18,6 +17,6 @@ export default function ProjectsSection() {
           }}
         />
       </div>
-    </div>
+    </SectionWrapper>
   );
 }

@@ -10,14 +10,6 @@ import "./styles.css";
 import { EffectCoverflow } from "swiper/modules";
 import { Projects } from "./data";
 
-function ImageCard() {
-  return (
-    <div className="rounded-sm">
-      <img src="https://picsum.photos/200/300" />
-    </div>
-  );
-}
-
 export default function ProjectSlider({ onChange }: { onChange: Function }) {
   return (
     <div className="h-[360px] w-[700px] bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 shadow-md">

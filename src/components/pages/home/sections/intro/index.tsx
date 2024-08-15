@@ -2,7 +2,7 @@ import AnimatedText from "../../../../common/animated-text";
 import GlowingButton from "../../../../common/glowing-button";
 import Navbar from "../../../../common/navbar";
 
-function IntoSection() {
+function IntroSection() {
   return (
     <>
       <Navbar />
@@ -20,4 +20,4 @@ function IntoSection() {
   );
 }
 
-export default IntoSection;
+export default IntroSection;

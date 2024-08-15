@@ -1,8 +1,8 @@
 import SectionWrapper from "../section-wrapper";
 
-export default function AboutSection() {
+export default function EducationSection() {
   return (
-    <SectionWrapper sectionName="About">
+    <SectionWrapper sectionName="Education">
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus omnis
         nihil voluptatum distinctio eveniet dicta repudiandae aspernatur iure.
