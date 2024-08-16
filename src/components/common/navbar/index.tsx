@@ -2,7 +2,7 @@ function Logo() {
   return (
     <div className="flex gap-2 items-center">
       <img
-        src="src/assets/me.png"
+        src="https://roshan9419.github.io/public-assets/images/me.png"
         width={40}
         height={40}
         className="rounded-full border-white border-2 filter grayscale hover:grayscale-0  transition duration-200 ease-in-out"
@@ -28,7 +28,11 @@ export default function Navbar() {
       <ul className="flex gap-6 font-bebas tracking-widest">
         {menus.map((menu) => {
           return (
-            <a href={`#${menu}`} key={menu} className="hover:text-blue-400 cursor-pointer">
+            <a
+              href={`#${menu}`}
+              key={menu}
+              className="hover:text-blue-400 cursor-pointer"
+            >
               {menu}
             </a>
           );

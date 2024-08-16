@@ -22,6 +22,6 @@ html {
 }
 
 body {
-  background-image: url("src/assets/abstract-technology-background-blur.jpg");
+  background-image: url('./assets/images/abstract-technology-background-blur.jpg');
   background-attachment: fixed;
 }

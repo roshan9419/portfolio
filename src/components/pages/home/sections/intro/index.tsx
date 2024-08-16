@@ -13,7 +13,9 @@ function IntroSection() {
             A passionate Software Engineer with extensive experience across
             multiple technologies.
           </p>
-          <GlowingButton text="Download Resume" />
+          <a href="https://roshan9419.github.io/public-assets/files/resume.pdf" target="_blank" rel="noopener noreferrer">
+            <GlowingButton text="Check my Resume" />
+          </a>
         </div>
       </div>
     </>

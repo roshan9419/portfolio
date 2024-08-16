@@ -10,7 +10,7 @@ export default function ContactSection() {
       sectionName="Contact"
       className="bg-slate-900 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-90"
     >
-      <div className="flex mt-10 p-5">
+      <div className="flex mt-10 p-5 max-lg:flex-col">
         <div className="flex-1 px-20">
           <h1 className="font-bebas text-4xl w-[300px]">
             Please check out my social handles
@@ -64,7 +64,7 @@ export default function ContactSection() {
               name="message"
               placeholder="Please add some message here..."
               required
-              className="h-[100px] py-3 px-4 rounded-sm"
+              className="h-[100px] py-3 px-4 rounded-sm border"
             ></textarea>
             <GlowingButton text="Send" />
           </form>

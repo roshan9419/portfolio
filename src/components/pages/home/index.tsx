@@ -1,4 +1,4 @@
-import AboutSection from "./sections/about";
+// import AboutSection from "./sections/about";
 import ContactSection from "./sections/contact";
 import EducationSection from "./sections/education";
 import ExperienceSection from "./sections/experience";
@@ -10,11 +10,11 @@ function HomePage() {
   return (
     <div>
       <IntroSection />
-      <AboutSection />
+      {/* <AboutSection /> */}
       <ExperienceSection />
-      <EducationSection />
-      <ProjectsSection />
       <SkillsSection />
+      <ProjectsSection />
+      <EducationSection />
       <ContactSection />
     </div>
   );
