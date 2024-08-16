@@ -1,20 +1,9 @@
-function Logo() {
-  return (
-    <div className="flex gap-2 items-center">
-      <img
-        src="https://roshan9419.github.io/public-assets/images/me.png"
-        width={40}
-        height={40}
-        className="rounded-full border-white border-2 filter grayscale hover:grayscale-0  transition duration-200 ease-in-out"
-      />
-      <p className="text-lg font-sans">Hi, Namaste 🙏</p>
-    </div>
-  );
-}
+import MenuIcon from "@mui/icons-material/Menu";
+import Logo from "./logo";
 
 export default function Navbar() {
   const menus = [
-    "About",
+    // "About",
     "Experience",
     "Projects",
     "Education",
@@ -23,9 +12,12 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="w-full h-12 p-16 flex justify-evenly items-center">
+    <nav className="w-full h-12 p-16 flex justify-evenly items-center max-md:justify-between">
       <Logo />
-      <ul className="flex gap-6 font-bebas tracking-widest">
+      <button className="max-md:block hidden">
+        <MenuIcon />
+      </button>
+      <ul className="flex gap-6 font-bebas tracking-widest max-md:hidden">
         {menus.map((menu) => {
           return (
             <a
@@ -38,6 +30,6 @@ export default function Navbar() {
           );
         })}
       </ul>
-    </div>
+    </nav>
   );
 }

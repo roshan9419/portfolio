@@ -5,14 +5,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 
-import "./styles.css";
 // import required modules
 import { EffectCoverflow } from "swiper/modules";
 import { Projects } from "./data";
 
 export default function ProjectSlider({ onChange }: { onChange: Function }) {
   return (
-    <div className="h-[360px] w-[700px] bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 shadow-md">
+    <div className="flex-1 h-[380px] max-lg:max-w-full max-w-[700px] bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 shadow-md">
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
@@ -26,13 +25,18 @@ export default function ProjectSlider({ onChange }: { onChange: Function }) {
         }}
         loop
         modules={[EffectCoverflow]}
-        className="mySwiper"
+        className="w-full py-12"
         onSlideChange={(s) => onChange(s.realIndex)}
       >
         {Projects.map((project) => {
           return (
-            <SwiperSlide>
-              <img loading="lazy" src={project.imagePath} />
+            <SwiperSlide className="md:w-[500px] max-lg:w-[300px] bg-center bg-cover">
+              <img
+                loading="lazy"
+                src={project.imagePath}
+                width={400}
+                className="max-lg:w-[300px] md:w-[500px]"
+              />
             </SwiperSlide>
           );
         })}

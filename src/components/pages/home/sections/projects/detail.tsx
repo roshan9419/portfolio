@@ -5,7 +5,7 @@ import { Project } from "./data";
 
 export default function ProjectDetail({ project }: { project: Project }) {
   return (
-    <div>
+    <div className="flex-1">
       <h2 className="font-bebas text-4xl">{project.name}</h2>
       <p className="text-gray-400 text-xl">
         {project.year} | {project.category}

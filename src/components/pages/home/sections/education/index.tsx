@@ -15,7 +15,7 @@ export default function EducationSection() {
     children: ReactNode;
   }) => {
     return (
-      <div className="p-6 w-[700px] border-gray-700 border-2 bg-blue-600 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 shadow-md">
+      <div className="p-6 w-[700px] max-w-full border-gray-700 border-2 bg-blue-600 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 shadow-md">
         <div className="flex justify-between">
           <div className="flex gap-2 items-center">
             <SchoolIcon />

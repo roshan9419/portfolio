@@ -1,22 +1,28 @@
 import AnimatedText from "../../../../common/animated-text";
 import GlowingButton from "../../../../common/glowing-button";
 import Navbar from "../../../../common/navbar";
+import SocialHandles from "./social-handles";
 
 function IntroSection() {
   return (
     <>
       <Navbar />
-      <div className="pt-[120px] h-screen">
+      <div className="pt-[120px] h-screen relative">
         <div className="flex items-center justify-center flex-col">
           <AnimatedText text="Roshan Kumar" />
-          <p className="uppercase text-xl font-bebas tracking-wide">
+          <p className="uppercase text-xl font-bebas tracking-wide text-center px-4">
             A passionate Software Engineer with extensive experience across
             multiple technologies.
           </p>
-          <a href="https://roshan9419.github.io/public-assets/files/resume.pdf" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://roshan9419.github.io/public-assets/files/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <GlowingButton text="Check my Resume" />
           </a>
         </div>
+        <SocialHandles />
       </div>
     </>
   );
