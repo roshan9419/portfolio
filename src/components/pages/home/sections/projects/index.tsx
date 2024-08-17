@@ -9,7 +9,7 @@ export default function ProjectsSection() {
 
   return (
     <SectionWrapper sectionName="Projects" className="bg-slate-900 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-90">
-      <div className="mt-20 gap-10 flex justify-between items-center px-14 max-lg:px-4 max-lg:flex-col">
+      <div className="mt-20 gap-10 flex justify-between items-center px-14 max-lg:px-0 max-lg:flex-col">
         <ProjectDetail project={currentProject} />
         <ProjectSlider
           onChange={(e: any) => {

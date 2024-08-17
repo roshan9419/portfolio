@@ -15,14 +15,17 @@ export default function ProjectDetail({ project }: { project: Project }) {
         <div className="flex gap-1 mt-2">
           {project.technologiesUsed.map((tech) => {
             return (
-              <span className="border-2 font-mono text-sm py-1 px-2 rounded-full">
+              <span
+                key={tech}
+                className="border-2 font-mono text-sm py-1 px-2 rounded-full bg-blue-900/70"
+              >
                 {tech}
               </span>
             );
           })}
         </div>
       )}
-      <div className="flex gap-2 mt-4">
+      <div className="flex gap-2 mt-6">
         {project.youtubeLink && (
           <a
             href={project.youtubeLink}

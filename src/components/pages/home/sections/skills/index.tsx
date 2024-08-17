@@ -11,7 +11,7 @@ export default function SkillsSection() {
       <div className="flex gap-3 flex-wrap">
         {Skills.map((skill) => {
           return (
-            <GlowingButton>
+            <GlowingButton key={skill.name}>
               <div className="flex gap-2 items-center ">
                 <img
                   width={30}
@@ -31,7 +31,7 @@ export default function SkillsSection() {
       <div className="flex gap-3 flex-wrap">
         {Tools.map((tool) => {
           return (
-            <GlowingButton>
+            <GlowingButton key={tool.name}>
               <div className="flex gap-2 items-center ">
                 <img
                   width={30}

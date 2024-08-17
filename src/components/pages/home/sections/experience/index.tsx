@@ -23,19 +23,19 @@ export default function ExperienceSection() {
       <li className="mb-10 ms-6">
         <time
           className={clsx(
-            "absolute max-lg:hidden mt-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500",
+            "absolute max-lg:hidden mt-1 text-sm font-normal leading-none text-gray-500",
             isPresent ? "-left-[90px]" : "-left-[160px]"
           )}
         >
           {date}
         </time>
-        <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-white dark:ring-gray-900 dark:bg-blue-900">
+        <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -start-3 ring-gray-900 bg-blue-900">
           <LocationOnIcon fontSize="small" />
         </span>
-        <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+        <h3 className="flex items-center mb-1 text-lg font-semibold text-white">
           {role}
           {isPresent && (
-            <span className="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ms-3">
+            <span className="text-sm font-medium me-2 px-2.5 py-0.5 rounded bg-primary-dark text-primary-light ms-3">
               Present
             </span>
           )}
@@ -43,12 +43,12 @@ export default function ExperienceSection() {
         <a
           href={companyLink}
           target="_blank"
-          className="block hover:text-blue-500 w-fit mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+          className="block hover:text-blue-500 w-fit mb-2 text-sm font-normal leading-none text-gray-500"
         >
           {company}
           <span className="max-lg:inline-block hidden">{", "}{date}</span>
         </a>
-        <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+        <p className="mb-4 text-base font-normal text-gray-400">
           {children}
         </p>
       </li>
@@ -61,7 +61,7 @@ export default function ExperienceSection() {
       className="bg-slate-900 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-90"
     >
       <div className="flex justify-center max-lg:pl-10 pl-20">
-        <ol className="relative border-s border-gray-200 dark:border-gray-700 mt-16">
+        <ol className="relative border-s border-gray-700 mt-16">
           <NewExperience
             role="Software Engineer"
             date="May 2024"
