@@ -144,12 +144,12 @@ export const Projects: Project[] = [
     technologiesUsed: ["Java", "MySQL", "Netbeans"],
   },
   {
-    name: "Digi Library",
+    name: "Way to Home",
     category: "Desktop Game",
     year: "Oct 2020",
     description: [
-      "A 2D Ball Game which is lost in the world, and finding a Way to Home. Made using #Unity3d. Good Graphics.",
-      "Developed my 1st 2d Game with love 😎",
+      "A 2D Ball which is lost in the world, and you need to find a Way to his home. You'll get many obstacles in order to clear levels. It has Good graphics and sounds.",
+      "Developed my 1st 2D Game with love and learning in Game development area. 😎",
     ],
     imagePath:
       "https://roshan9419.github.io/public-assets/images/projects/way-to-home.png",
