@@ -7,17 +7,19 @@ export default function ProjectDetail({ project }: { project: Project }) {
   return (
     <div className="flex-1">
       <h2 className="font-bebas text-4xl">{project.name}</h2>
-      <p className="text-gray-400 text-xl">
+      <p className="text-gray-400 text-lg">
         {project.year} | {project.category}
       </p>
-      <p className="mt-4">{project.description}</p>
+      {project.description.map((desc) => {
+        return <div className="mt-4">{desc}</div>;
+      })}
       {project.technologiesUsed && (
-        <div className="flex gap-1 mt-2">
+        <div className="flex gap-1 mt-4">
           {project.technologiesUsed.map((tech) => {
             return (
               <span
                 key={tech}
-                className="border-2 font-mono text-sm py-1 px-2 rounded-full bg-blue-900/70"
+                className="font-sans text-sm py-1 px-3 rounded-full bg-primary-dark text-primary-light"
               >
                 {tech}
               </span>
@@ -33,7 +35,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             className="flex tracking-wider p-3 gap-2 h-10 shadow-md items-center text-lg font-bebas bg-red-600"
           >
             <YouTubeIcon />
-            Watch
+            <span className="mt-0.5">Watch</span>
           </a>
         )}
         {project.githubLink && (
@@ -43,7 +45,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             className="flex tracking-wider p-3 gap-2 h-10 shadow-md items-center text-lg font-bebas bg-gray-900 text-nowrap"
           >
             <GitHubIcon />
-            Source Code
+            <span className="mt-0.5">Source Code</span>
           </a>
         )}
         {project.demoLink && (

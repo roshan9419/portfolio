@@ -4,18 +4,21 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 
 // import required modules
-import { EffectCoverflow } from "swiper/modules";
+import { EffectCoverflow, Pagination } from "swiper/modules";
 import { Projects } from "./data";
+
 
 export default function ProjectSlider({ onChange }: { onChange: Function }) {
   return (
-    <div className="flex-1 h-[380px] max-lg:max-w-full max-w-[700px] bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 shadow-md">
+    <div className="flex-1 h-[390px] max-lg:max-w-full max-w-[700px] bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 shadow-md">
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
+        pagination={{clickable: true}}
         slidesPerView={"auto"}
         coverflowEffect={{
           rotate: 0,
@@ -24,7 +27,7 @@ export default function ProjectSlider({ onChange }: { onChange: Function }) {
           modifier: 2.5,
         }}
         loop
-        modules={[EffectCoverflow]}
+        modules={[EffectCoverflow, Pagination]}
         className="w-full py-12"
         onSlideChange={(s) => onChange(s.realIndex)}
       >

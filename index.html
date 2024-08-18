@@ -50,7 +50,15 @@
     ></script>
   </head>
   <body>
+    <div id="spotlight"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script type="text/javascript">
+      const pos = document.documentElement;
+      pos.addEventListener('mousemove', e => {
+        pos.style.setProperty('--x', e.clientX + 'px');
+        pos.style.setProperty('--y', e.clientY + 'px');
+      });
+    </script>
   </body>
 </html>

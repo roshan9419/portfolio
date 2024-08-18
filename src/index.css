@@ -22,6 +22,20 @@ html {
 }
 
 body {
-  background-image: url('./assets/images/abstract-technology-background-blur.jpg');
+  background-image: url("./assets/images/abstract-technology-background-blur.jpg");
   background-attachment: fixed;
+}
+
+#spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--x) var(--y),
+    transparent 10%,
+    rgba(0, 0, 0, 0.20) 20%
+  );
 }

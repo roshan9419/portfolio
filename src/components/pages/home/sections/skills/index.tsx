@@ -4,7 +4,7 @@ import { Skills, Tools } from "./data";
 
 export default function SkillsSection() {
   return (
-    <SectionWrapper sectionName="Skills">
+    <SectionWrapper sectionName="Skills" className="bg-gray-900">
       <h2 className="text-3xl font-bebas text-blue-400 mt-12">
         Languages & Frameworks
       </h2>

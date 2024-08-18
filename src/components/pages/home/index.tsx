@@ -1,4 +1,5 @@
 // import AboutSection from "./sections/about";
+import AchievementSection from "./sections/achievements";
 import ContactSection from "./sections/contact";
 import EducationSection from "./sections/education";
 import ExperienceSection from "./sections/experience";
@@ -15,6 +16,7 @@ function HomePage() {
       <SkillsSection />
       <ProjectsSection />
       <EducationSection />
+      <AchievementSection />
       <ContactSection />
     </div>
   );

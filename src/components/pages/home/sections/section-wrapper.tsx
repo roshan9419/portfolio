@@ -12,7 +12,7 @@ export default function SectionWrapper({
   className?: string;
 }) {
   return (
-    <div className={clsx("w-full min-h-screen p-10", className)}>
+    <div id={sectionName} className={clsx("w-full min-h-screen p-10", className)}>
       <UnderlineText text={sectionName} />
       {children}
     </div>
