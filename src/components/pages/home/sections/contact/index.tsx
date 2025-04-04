@@ -1,3 +1,4 @@
+import { ContactDetailsConstants } from "../../../../../utils/constants";
 import GlowingButton from "../../../../common/glowing-button";
 import SectionWrapper from "../section-wrapper";
 
@@ -7,26 +8,26 @@ export default function ContactSection() {
       sectionName="Contact"
       className="bg-slate-900 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-90"
     >
-      <div className="flex justify-center">
-        <div className="px-20 max-lg:px-0 mt-24 w-full max-w-[700px]">
+      <div class="flex justify-center">
+        <div class="px-20 max-lg:px-0 mt-24 w-full max-w-[700px]">
           <form
-            method="POST"
-            action="mailto:roshank9419@gmail.com?subject=Contact request from Portfolio Website"
-            className="flex flex-col gap-3"
+            method="post"
+            action={`mailto:${ContactDetailsConstants.EMAIL}?subject=Contact Request from Portfolio Website`}
+            class="flex flex-col gap-3"
           >
             <input
               type="text"
               name=""
               placeholder="What is your name?"
               required
-              className="py-3 px-4 rounded-md border bg-blue-900/20"
+              class="py-3 px-4 rounded-md border bg-blue-900/20"
             />
 
             <textarea
               name="message"
               placeholder="Please add some message here..."
               required
-              className="h-[200px] py-3 px-4 rounded-md border bg-blue-900/20"
+              class="h-[200px] py-3 px-4 rounded-md border bg-blue-900/20"
             ></textarea>
             <GlowingButton text="Send" />
           </form>

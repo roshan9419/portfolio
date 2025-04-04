@@ -3,7 +3,7 @@ import SectionWrapper from "../section-wrapper";
 export default function AboutSection() {
   return (
     <SectionWrapper sectionName="About">
-      <div className="flex justify-center gap-10">
+      <div class="flex justify-center gap-10">
           <p>
             Hi there! I'm Roshan, a passionate Software Engineer with extensive
             experience across multiple technologies. I've developed numerous

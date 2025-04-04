@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
-import UnderlineText from "../../../common/underline-text";
+import { JSX } from "solid-js";
 import clsx from "clsx";
+import UnderlineText from "../../../common/underline-text";
 
 export default function SectionWrapper({
   sectionName,
@@ -8,11 +8,11 @@ export default function SectionWrapper({
   className,
 }: {
   sectionName: string;
-  children: ReactNode;
+  children: JSX.Element;
   className?: string;
 }) {
   return (
-    <div id={sectionName} className={clsx("w-full min-h-screen p-10", className)}>
+    <div id={sectionName} class={clsx("w-full min-h-screen p-10", className)}>
       <UnderlineText text={sectionName} />
       {children}
     </div>

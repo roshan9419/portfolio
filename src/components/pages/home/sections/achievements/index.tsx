@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { JSX } from "solid-js";
 import SectionWrapper from "../section-wrapper";
 
 export default function AchievementSection() {
@@ -8,21 +8,21 @@ export default function AchievementSection() {
     image,
   }: {
     title: string;
-    description: string | ReactNode;
+    description: string | JSX.Element;
     image: string;
   }) => {
     return (
-      <div className="border-1 p-6">
+      <div class="border-1 p-6">
         <img src={image} alt={title} width={400} />
-        <p className="text-center mt-4 text-lg text-gray-200">{title}</p>
-        <p className="text-center text-gray-400 max-w-[400px]">{description}</p>
+        <p class="text-center mt-4 text-lg text-gray-200">{title}</p>
+        <p class="text-center text-gray-400 max-w-[400px]">{description}</p>
       </div>
     );
   };
 
   return (
     <SectionWrapper sectionName="Achievements" className="bg-gray-900">
-      <div className="flex flex-wrap gap-6 justify-center items-center mt-10">
+      <div class="flex flex-wrap gap-6 justify-center items-center mt-10">
         <AchievementCard
           title="CodeEd - Online Hackathon"
           description="An online hackathon was conducted by HackerEarth where I chose E-learning topic and built an website solving many use-cases of students."
@@ -38,7 +38,7 @@ export default function AchievementSection() {
               <a
                 href="https://roshan9419.github.io/public-assets/images/achievements/cofas-news.png"
                 target="_blank"
-                className="text-primary"
+                class="text-primary"
               >
                 Newspaper.
               </a>
@@ -47,7 +47,7 @@ export default function AchievementSection() {
           image="https://roshan9419.github.io/public-assets/images/achievements/cofas-certificate.jpg"
         />
       </div>
-      <p className="text-center text-gray-500 mt-10">
+      <p class="text-center text-gray-500 mt-10">
         Note: many more achievements of past or early age are not included
       </p>
     </SectionWrapper>

@@ -7,10 +7,10 @@ function IntroSection() {
   return (
     <>
       <Navbar />
-      <div className="pt-[120px] h-screen relative">
-        <div className="flex items-center justify-center flex-col">
+      <div class="pt-[120px] h-screen relative">
+        <div class="flex items-center justify-center flex-col">
           <AnimatedText text="Roshan Kumar" />
-          <p className="uppercase text-xl font-bebas tracking-wide text-center px-4">
+          <p class="uppercase text-xl font-bebas tracking-wide text-center px-4">
             A passionate Software Engineer with extensive experience across
             multiple technologies.
           </p>

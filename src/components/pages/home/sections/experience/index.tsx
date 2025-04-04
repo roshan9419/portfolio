@@ -1,67 +1,65 @@
-import { ReactNode } from "react";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import SectionWrapper from "../section-wrapper";
+import { JSX } from "solid-js";
 import clsx from "clsx";
+import LocationOnIcon from "lucide-solid/icons/map-pin";
+import SectionWrapper from "../section-wrapper";
 
-export default function ExperienceSection() {
-  const NewExperience = ({
-    role,
-    date,
-    company,
-    companyLink,
-    isPresent,
-    children,
-  }: {
-    role: string;
-    date: string;
-    company: string;
-    companyLink: string;
-    isPresent?: boolean;
-    children?: ReactNode;
-  }) => {
-    return (
-      <li className="mb-10 ms-6">
-        <time
-          className={clsx(
-            "absolute max-lg:hidden mt-1 text-sm font-normal leading-none text-gray-500",
-            isPresent ? "-left-[90px]" : "-left-[160px]"
-          )}
-        >
+type ExperienceProps = {
+  role: string;
+  date: string;
+  company: string;
+  companyLink: string;
+  isPresent?: boolean;
+  children?: JSX.Element;
+};
+
+function NewExperience(props: ExperienceProps): JSX.Element {
+  const { role, date, company, companyLink, isPresent, children } = props;
+
+  return (
+    <li class="mb-10 ms-6">
+      <time
+        class={clsx(
+          "absolute max-lg:hidden mt-1 text-sm font-normal leading-none text-gray-500",
+          isPresent ? "-left-[90px]" : "-left-[160px]"
+        )}
+      >
+        {date}
+      </time>
+      <span class="absolute flex items-center justify-center p-1 w-6 h-6 rounded-full -start-3 ring-gray-900 bg-blue-900">
+        <LocationOnIcon font-size="20" />
+      </span>
+      <h3 class="flex items-center mb-1 text-lg font-semibold text-white">
+        {role}
+        {isPresent && (
+          <span class="text-sm font-medium me-2 px-2.5 py-0.5 rounded bg-primary-dark text-primary-light ms-3">
+            Present
+          </span>
+        )}
+      </h3>
+      <a
+        href={companyLink}
+        target="_blank"
+        class="block hover:text-blue-500 w-fit mb-2 text-sm font-normal leading-none text-gray-500"
+      >
+        {company}
+        <span class="max-lg:inline-block hidden">
+          {", "}
           {date}
-        </time>
-        <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -start-3 ring-gray-900 bg-blue-900">
-          <LocationOnIcon fontSize="small" />
         </span>
-        <h3 className="flex items-center mb-1 text-lg font-semibold text-white">
-          {role}
-          {isPresent && (
-            <span className="text-sm font-medium me-2 px-2.5 py-0.5 rounded bg-primary-dark text-primary-light ms-3">
-              Present
-            </span>
-          )}
-        </h3>
-        <a
-          href={companyLink}
-          target="_blank"
-          className="block hover:text-blue-500 w-fit mb-2 text-sm font-normal leading-none text-gray-500"
-        >
-          {company}
-          <span className="max-lg:inline-block hidden">{", "}{date}</span>
-        </a>
-        <p className="mb-4 text-base font-normal text-gray-400">
-          {children}
-        </p>
-      </li>
-    );
-  };
+      </a>
+      <p class="mb-4 text-base font-normal text-gray-400">{children}</p>
+    </li>
+  );
+}
 
+export default function ExperienceSection(): JSX.Element {
   return (
     <SectionWrapper
       sectionName="Experience"
       className="bg-slate-900 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-90"
     >
-      <div className="flex justify-center max-lg:pl-10 pl-20">
-        <ol className="relative border-s border-gray-700 mt-16">
+      <div class="flex justify-center max-lg:pl-10 pl-20">
+        <ol class="relative border-s border-gray-700 mt-16">
           <NewExperience
             role="Software Engineer"
             date="May 2024"
@@ -69,7 +67,7 @@ export default function ExperienceSection() {
             company="LeadSquared"
             companyLink="https://www.leadsquared.com/"
           >
-            <ul className="list-disc list-inside">
+            <ul class="list-disc list-inside">
               <li>
                 Developed and maintained scalable and secure backend services
                 using C# .Net, MySQL, Redis, AWS, ensuring high performance and
@@ -83,7 +81,7 @@ export default function ExperienceSection() {
               <li>
                 Assisted in troubleshooting and debugging issues across all the
                 modules, ensuring robust security practices and adherence to
-                coding standards
+                coding standards.
               </li>
               <li>
                 Investigated and resolved complex technical issues reported by
@@ -92,33 +90,36 @@ export default function ExperienceSection() {
               </li>
             </ul>
           </NewExperience>
+
           <NewExperience
             role="Associate Software Engineer"
             date="Jan 2023 - Mar 2024"
             company="LeadSquared"
             companyLink="https://www.leadsquared.com/"
           />
+
           <NewExperience
             role="Software Engineer Intern"
             date="May 2022 - May 2023"
             company="LeadSquared"
             companyLink="https://www.leadsquared.com/"
           />
+
           <NewExperience
             role="Software Engineer Intern"
             date="Apr 2021 - Apr 2022"
             company="Redbasil Technologies"
             companyLink="https://redbasil.in/"
           >
-            <ul className="list-disc list-inside">
+            <ul class="list-disc list-inside">
               <li>
                 Developed robust applications using Flutter asfrontend, NodeJs
-                as backend, and Firebase/GCP for scalable cloud solutions
+                as backend, and Firebase/GCP for scalable cloud solutions.
               </li>
               <li>
                 Implemented secure Order, Cart, and User Management systems
                 using Firebase security rules to insure database & cloud storage
-                integrity
+                integrity.
               </li>
               <li>
                 Utilized Pub-Sub mechanism for reliable message delivery and

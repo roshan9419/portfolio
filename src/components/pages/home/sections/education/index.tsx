@@ -1,6 +1,6 @@
-import SchoolIcon from "@mui/icons-material/School";
+import { JSX } from "solid-js";
+import SchoolIcon from "lucide-solid/icons/graduation-cap";
 import SectionWrapper from "../section-wrapper";
-import { ReactNode } from "react";
 
 export default function EducationSection() {
   const EducationCard = ({
@@ -12,19 +12,19 @@ export default function EducationSection() {
     name: string;
     place: string;
     year: string;
-    children: ReactNode;
+    children: JSX.Element;
   }) => {
     return (
-      <div className="p-6 w-[700px] max-w-full border-gray-700 border-2 bg-blue-600 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 shadow-md">
-        <div className="flex justify-between">
-          <div className="flex gap-2 items-center">
+      <div class="p-6 w-[700px] max-w-full border-gray-700 border-2 bg-blue-600 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 shadow-md">
+        <div class="flex justify-between">
+          <div class="flex gap-2 items-center">
             <SchoolIcon />
-            <span className="font-serif text-2xl">{place}</span>
+            <span class="font-serif text-2xl">{place}</span>
           </div>
-          <time className="text-gray-500">{year}</time>
+          <time class="text-gray-500">{year}</time>
         </div>
-        <p className="text-gray-400 text-sm">{name}</p>
-        <ul className="list-disc list-inside mt-6 text-base font-normal">
+        <p class="text-gray-400 text-sm">{name}</p>
+        <ul class="list-disc list-inside mt-6 text-base font-normal">
           {children}
         </ul>
       </div>
@@ -33,7 +33,7 @@ export default function EducationSection() {
 
   return (
     <SectionWrapper sectionName="Education" className="bg-gray-900">
-      <div className="flex flex-col gap-6 justify-center items-center mt-10">
+      <div class="flex flex-col gap-6 justify-center items-center mt-10">
         <EducationCard
           name="Bachelor of Technology in Computer Science & Engineering, 8.62 CGPA"
           place="Lovely Professional University, Phagwara"
