@@ -54,6 +54,7 @@ export default function ProjectSlider(props: {
                 src={project.imagePath}
                 width={400}
                 class="max-lg:w-[300px] md:w-[500px]"
+                alt={project.name}
               />
             </div>
           ))}

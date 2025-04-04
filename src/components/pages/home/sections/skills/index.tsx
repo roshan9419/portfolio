@@ -17,7 +17,7 @@ export default function SkillsSection() {
                   width={30}
                   height={30}
                   src={skill.iconUrl}
-                  alt={skill.name}
+                  alt={`${skill.name} icon`}
                 />
                 <span class="text-1xl">{skill.name}</span>
               </div>
@@ -35,7 +35,7 @@ export default function SkillsSection() {
                   width={30}
                   height={30}
                   src={tool.iconUrl}
-                  alt={tool.name}
+                  alt={`${tool.name} icon`}
                 />
                 <span class="text-1xl">{tool.name}</span>
               </div>
