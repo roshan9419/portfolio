@@ -28,14 +28,14 @@ function NewExperience(props: ExperienceProps): JSX.Element {
       <span class="absolute flex items-center justify-center p-1 w-6 h-6 rounded-full -start-3 ring-gray-900 bg-blue-900">
         <LocationOnIcon font-size="20" />
       </span>
-      <h3 class="flex items-center mb-1 text-lg font-semibold text-white">
+      <p class="flex items-center mb-1 text-lg font-semibold text-white">
         {role}
         {isPresent && (
           <span class="text-sm font-medium me-2 px-2.5 py-0.5 rounded bg-primary-dark text-primary-light ms-3">
             Present
           </span>
         )}
-      </h3>
+      </p>
       <a
         href={companyLink}
         target="_blank"

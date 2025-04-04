@@ -38,7 +38,7 @@ export default function AchievementSection() {
               <a
                 href="https://roshan9419.github.io/public-assets/images/achievements/cofas-news.png"
                 target="_blank"
-                class="text-primary"
+                class="text-primary-light"
               >
                 Newspaper.
               </a>

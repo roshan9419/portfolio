@@ -25,9 +25,11 @@ export default function Navbar() {
       <ul class="flex gap-6 font-bebas tracking-widest max-md:hidden">
         {menus.map((menu) => {
           return (
-            <a href={`#${menu}`} class="hover:text-blue-400 cursor-pointer">
-              {menu}
-            </a>
+            <li>
+              <a href={`#${menu}`} class="hover:text-blue-400 cursor-pointer">
+                {menu}
+              </a>
+            </li>
           );
         })}
       </ul>
@@ -39,13 +41,15 @@ export default function Navbar() {
           <ul class="flex gap-10 items-center mt-32 flex-col text-2xl font-bebas tracking-widest">
             {menus.map((menu) => {
               return (
-                <a
-                  href={`#${menu}`}
-                  class="hover:text-blue-400 cursor-pointer"
-                  onClick={() => setIsOpened(false)}
-                >
-                  {menu}
-                </a>
+                <li>
+                  <a
+                    href={`#${menu}`}
+                    class="hover:text-blue-400 cursor-pointer"
+                    onClick={() => setIsOpened(false)}
+                  >
+                    {menu}
+                  </a>
+                </li>
               );
             })}
           </ul>
