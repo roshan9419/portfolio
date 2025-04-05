@@ -24,6 +24,7 @@ html {
 body {
   background-image: url("./assets/images/abstract-technology-background-blur.jpg");
   background-attachment: fixed;
+  background-size: cover;
 }
 
 #spotlight {
