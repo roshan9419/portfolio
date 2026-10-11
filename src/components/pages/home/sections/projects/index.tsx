@@ -5,20 +5,23 @@ import { Projects } from "./data";
 import SectionWrapper from "../section-wrapper";
 
 export default function ProjectsSection() {
-  const [currentProject, setCurrentProject] = createSignal(Projects[0]);
+  const [currentIndex, setCurrentIndex] = createSignal(0);
 
   return (
     <SectionWrapper
       sectionName="Projects"
-      className="bg-slate-900 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-90"
+      level={3}
+      levelName="Quest Log"
+      tagline="Side quests I took on to learn, build and ship real things."
+      class="bg-surface/90 backdrop-blur-sm"
     >
       <div class="mt-20 gap-10 flex justify-between items-center px-14 max-lg:px-0 max-lg:flex-col">
-        <ProjectDetail project={currentProject} />
-        <ProjectSlider
-          onChange={(e: number) => {
-            setCurrentProject(Projects[e]);
-          }}
+        <ProjectDetail
+          project={Projects[currentIndex()]}
+          questNumber={currentIndex() + 1}
+          totalQuests={Projects.length}
         />
+        <ProjectSlider onChange={setCurrentIndex} />
       </div>
     </SectionWrapper>
   );

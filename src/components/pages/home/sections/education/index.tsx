@@ -1,67 +1,89 @@
-import { JSX } from "solid-js";
-import SchoolIcon from "lucide-solid/icons/graduation-cap";
+import { Component, For } from "solid-js";
+import { Dynamic } from "solid-js/web";
+import { LucideProps } from "lucide-solid";
+import GraduationCapIcon from "lucide-solid/icons/graduation-cap";
+import SchoolIcon from "lucide-solid/icons/school";
+import CalendarIcon from "lucide-solid/icons/calendar";
+import MapPinIcon from "lucide-solid/icons/map-pin";
+import BriefcaseIcon from "lucide-solid/icons/briefcase";
+import TrophyIcon from "lucide-solid/icons/trophy";
+import AwardIcon from "lucide-solid/icons/award";
 import SectionWrapper from "../section-wrapper";
+import { Education, Educations, HighlightKind } from "./data";
+
+const highlightIcons: Record<HighlightKind, Component<LucideProps>> = {
+  internship: BriefcaseIcon,
+  award: TrophyIcon,
+  recognition: AwardIcon,
+};
+
+function EducationCard(props: { education: Education }) {
+  return (
+    <article class="hud-frame group flex flex-col overflow-hidden rounded-xl border bg-card/40 p-6 backdrop-blur-sm transition hover:-translate-y-1 hover:border-link/50 hover:shadow-lg">
+      <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent via-link to-accent opacity-60 transition-opacity group-hover:opacity-100" />
+
+      <div class="flex items-start gap-4">
+        <span class="flex shrink-0 items-center justify-center w-12 h-12 rounded-lg bg-accent/15 text-link">
+          <Dynamic
+            component={props.education.kind === "university" ? GraduationCapIcon : SchoolIcon}
+            size={24}
+          />
+        </span>
+        <div class="min-w-0">
+          <h3 class="text-xl font-semibold text-foreground">
+            {props.education.institution}
+          </h3>
+          <p class="text-muted">{props.education.degree}</p>
+        </div>
+      </div>
+
+      <div class="mt-4 flex flex-wrap items-center gap-2 text-sm">
+        <span class="rounded-full bg-accent-soft px-3 py-1 font-semibold text-accent-soft-foreground">
+          {props.education.score}
+        </span>
+        <span class="flex items-center gap-1.5 rounded-full border px-3 py-1 text-muted">
+          <CalendarIcon size={14} />
+          {props.education.period}
+        </span>
+        <span class="flex items-center gap-1.5 rounded-full border px-3 py-1 text-muted">
+          <MapPinIcon size={14} />
+          {props.education.location}
+        </span>
+      </div>
+
+      <h4 class="mt-6 mb-3 font-pixel text-[9px] uppercase tracking-widest text-subtle">
+        Unlocked
+      </h4>
+      <ul class="flex flex-col gap-3">
+        <For each={props.education.highlights}>
+          {(highlight) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 flex shrink-0 items-center justify-center w-7 h-7 rounded-md bg-surface/60 border text-link">
+                <Dynamic component={highlightIcons[highlight.kind]} size={14} />
+              </span>
+              <span class="flex-1 text-foreground">{highlight.text}</span>
+              <time class="shrink-0 pt-0.5 text-sm text-subtle">{highlight.date}</time>
+            </li>
+          )}
+        </For>
+      </ul>
+    </article>
+  );
+}
 
 export default function EducationSection() {
-  const EducationCard = ({
-    name,
-    place,
-    year,
-    children,
-  }: {
-    name: string;
-    place: string;
-    year: string;
-    children: JSX.Element;
-  }) => {
-    return (
-      <div class="p-6 w-[700px] max-w-full border-gray-700 border-2 bg-blue-600 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 shadow-md">
-        <div class="flex justify-between">
-          <div class="flex gap-2 items-center">
-            <SchoolIcon />
-            <span class="font-serif text-2xl">{place}</span>
-          </div>
-          <time class="text-gray-500">{year}</time>
-        </div>
-        <p class="text-gray-400 text-sm">{name}</p>
-        <ul class="list-disc list-inside mt-6 text-base font-normal">
-          {children}
-        </ul>
-      </div>
-    );
-  };
-
   return (
-    <SectionWrapper sectionName="Education" className="bg-gray-900">
-      <div class="flex flex-col gap-6 justify-center items-center mt-10">
-        <EducationCard
-          name="Bachelor of Technology in Computer Science & Engineering, 8.62 CGPA"
-          place="Lovely Professional University, Phagwara"
-          year="2019 - 2023"
-        >
-          <li>
-            Got Internship offer from LeadSquared as SDE Intern - Apr 2022
-          </li>
-          <li>
-            Got Internship offer from Redbasil as Software Engineer Intern - Mar
-            2021
-          </li>
-          <li>
-            3rd Rank in CodeEd Online Hackathon conducted on HackerEarth - Nov
-            2020
-          </li>
-          <li>
-            1st Rank in WebMania 3.0 (College Event) with my partner - Mar 2020
-          </li>
-        </EducationCard>
-        <EducationCard
-          name="Non-medical, 89.8%"
-          place="Army Public School, Hisar"
-          year="2018 - 2019"
-        >
-          <li>Achieved Master Academics recognition on Farewell - Feb 2019</li>
-          <li>2nd Rank in COFAS International Computer Event - Oct 2018</li>
-        </EducationCard>
+    <SectionWrapper
+      sectionName="Education"
+      level={4}
+      levelName="Training Grounds"
+      tagline="Where I trained, grinded and levelled up my skills."
+      class="bg-surface-alt"
+    >
+      <div class="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-2">
+        <For each={Educations}>
+          {(education) => <EducationCard education={education} />}
+        </For>
       </div>
     </SectionWrapper>
   );

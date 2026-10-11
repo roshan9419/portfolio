@@ -1,13 +1,5 @@
 .animated-text {
-  background: linear-gradient(
-    90deg,
-    #0033ff,
-    #001eff,
-    #050c89,
-    #04196c,
-    #6f00ff,
-    #8800ff
-  );
+  background: var(--hero-gradient);
   background-size: 400%;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;

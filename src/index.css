@@ -2,29 +2,257 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@layer base {
+  :root,
+  .dark {
+    color-scheme: dark;
+    --color-background: 7 6 13;
+    --color-foreground: 226 232 240;
+    --color-surface: 15 23 42;
+    --color-surface-alt: 17 24 39;
+    --color-card: 30 41 59;
+    --color-overlay: 30 58 138;
+    --color-muted: 148 163 184;
+    --color-subtle: 120 135 156;
+    --color-border: 51 65 85;
+    --color-link: 96 165 250;
+    --color-glow: 186 230 253;
+    --color-logo-tile: 255 255 255;
+    --color-accent: 37 99 235;
+    --color-accent-foreground: 255 255 255;
+    --color-accent-soft: 30 58 138;
+    --color-accent-soft-foreground: 147 197 253;
+    --color-spotlight: 0 0 0;
+    --spotlight-opacity: 0.2;
+    --shadow-glow: 0 0 2px #fff, inset 0 0 2px #fff, 0 0 5px #08f, 0 0 15px #08f, 0 0 30px #08f;
+    --hero-gradient: linear-gradient(90deg, #3b82f6, #6366f1, #8b5cf6, #a855f7, #6366f1, #3b82f6);
+    --color-terrain-line: 59 130 246;
+    --color-terrain-node: 103 232 249;
+    --terrain-opacity: 1;
+    --terrain-blend: lighter;
+    --text-neon: 0 0 8px rgb(var(--color-accent) / 0.8), 0 0 24px rgb(var(--color-accent) / 0.5);
+    --grid-line-opacity: 0.06;
+    --color-cursor: 103 232 249;
+    --color-cursor-target: 244 63 94;
+    --color-cursor-outline: 11 16 32;
+    --button-glow-blur: 8px;
+    --button-glow-opacity: 0.7;
+  }
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #07060d;
+  .light {
+    color-scheme: light;
+    --color-background: 248 250 252;
+    --color-foreground: 15 23 42;
+    --color-surface: 248 250 252;
+    --color-surface-alt: 241 245 249;
+    --color-card: 255 255 255;
+    --color-overlay: 255 255 255;
+    --color-muted: 71 85 105;
+    --color-subtle: 100 116 139;
+    --color-border: 203 213 225;
+    --color-link: 37 99 235;
+    --color-glow: 37 99 235;
+    --color-logo-tile: 255 255 255;
+    --color-accent: 37 99 235;
+    --color-accent-foreground: 255 255 255;
+    --color-accent-soft: 219 234 254;
+    --color-accent-soft-foreground: 30 64 175;
+    --color-spotlight: 37 99 235;
+    --spotlight-opacity: 0.04;
+    --shadow-glow: 0 4px 14px rgb(37 99 235 / 0.35);
+    --hero-gradient: linear-gradient(90deg, #0033ff, #001eff, #050c89, #6f00ff, #8800ff, #0033ff);
+    --color-terrain-line: 99 102 241;
+    --color-terrain-node: 59 130 246;
+    --terrain-opacity: 0.7;
+    --terrain-blend: source-over;
+    --text-neon: 0 2px 0 rgb(var(--color-accent) / 0.25);
+    --grid-line-opacity: 0.07;
+    --color-cursor: 37 99 235;
+    --color-cursor-target: 225 29 72;
+    --color-cursor-outline: 255 255 255;
+    --button-glow-blur: 5px;
+    --button-glow-opacity: 0.35;
+  }
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  :root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color: rgb(var(--color-foreground));
+    background-color: rgb(var(--color-background));
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    --swiper-pagination-color: rgb(var(--color-accent));
+    --swiper-pagination-bullet-inactive-color: rgb(var(--color-muted));
+    --swiper-pagination-bullet-inactive-opacity: 0.5;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    cursor: var(--cursor-default, crosshair);
+  }
+
+  a[href],
+  button:not(:disabled),
+  [data-sound-hover] {
+    cursor: var(--cursor-target, pointer);
+  }
+
+  input,
+  textarea {
+    cursor: text;
+  }
+
+  ::placeholder {
+    color: rgb(var(--color-subtle));
+  }
 }
 
-html {
-  scroll-behavior: smooth;
+@layer components {
+  .hud-frame {
+    position: relative;
+  }
+
+  .hud-frame::before,
+  .hud-frame::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: rgb(var(--color-link));
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 1;
+    transition: width 0.3s, height 0.3s, opacity 0.3s;
+  }
+
+  .hud-frame::before {
+    top: 0;
+    left: 0;
+    border-top-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: inherit;
+  }
+
+  .hud-frame::after {
+    bottom: 0;
+    right: 0;
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+    border-bottom-right-radius: inherit;
+  }
+
+  .hud-frame:hover::before,
+  .hud-frame:hover::after {
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+  }
+
+  .hud-grid {
+    background-image: linear-gradient(rgb(var(--color-link) / var(--grid-line-opacity)) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--color-link) / var(--grid-line-opacity)) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Outer element carries the glow: drop-shadow on the face itself would be cut off by its clip-path. */
+  .arcade-button {
+    display: inline-flex;
+    filter: drop-shadow(0 0 var(--button-glow-blur) rgb(var(--color-accent) / var(--button-glow-opacity)));
+    transition: filter 0.2s;
+  }
+
+  .arcade-button:hover,
+  .arcade-button:focus-visible {
+    filter: drop-shadow(0 0 calc(var(--button-glow-blur) * 2) rgb(var(--color-accent) / var(--button-glow-opacity)));
+  }
+
+  .arcade-button:focus-visible {
+    outline: none;
+  }
+
+  .arcade-button-face {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    overflow: hidden;
+    padding: 1rem 2.25rem 1.25rem;
+    background: rgb(var(--color-accent));
+    color: rgb(var(--color-accent-foreground));
+    box-shadow: inset 0 3px 0 rgb(255 255 255 / 0.3), inset 0 -5px 0 rgb(0 0 0 / 0.35);
+    clip-path: polygon(
+      0 6px, 3px 6px, 3px 3px, 6px 3px, 6px 0,
+      calc(100% - 6px) 0, calc(100% - 6px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 6px, 100% 6px,
+      100% calc(100% - 6px), calc(100% - 3px) calc(100% - 6px), calc(100% - 3px) calc(100% - 3px), calc(100% - 6px) calc(100% - 3px), calc(100% - 6px) 100%,
+      6px 100%, 6px calc(100% - 3px), 3px calc(100% - 3px), 3px calc(100% - 6px), 0 calc(100% - 6px)
+    );
+    transition: transform 0.08s, box-shadow 0.08s, filter 0.2s;
+  }
+
+  .arcade-button-face::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 35%, rgb(255 255 255 / 0.35) 50%, transparent 65%);
+    transform: translateX(-120%);
+    pointer-events: none;
+  }
+
+  .arcade-button:hover .arcade-button-face,
+  .arcade-button:focus-visible .arcade-button-face {
+    filter: brightness(1.12);
+  }
+
+  .arcade-button:hover .arcade-button-face::after,
+  .arcade-button:focus-visible .arcade-button-face::after {
+    transform: translateX(120%);
+    transition: transform 0.6s ease-out;
+  }
+
+  .arcade-button:active .arcade-button-face {
+    transform: translateY(3px);
+    box-shadow: inset 0 3px 0 rgb(0 0 0 / 0.2), inset 0 -2px 0 rgb(0 0 0 / 0.35);
+  }
+
+  .arcade-button-arrow {
+    position: absolute;
+    left: 0.875rem;
+    top: calc(50% - 0.4375rem);
+    width: 0.5rem;
+    height: 0.625rem;
+    background: currentColor;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.15s, transform 0.15s;
+  }
+
+  .arcade-button:hover .arcade-button-arrow,
+  .arcade-button:focus-visible .arcade-button-arrow {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .arcade-button:hover .arcade-button-arrow,
+    .arcade-button:focus-visible .arcade-button-arrow {
+      animation: blink 0.8s steps(1) infinite;
+    }
+  }
 }
 
-body {
-  background-image: url("./assets/images/abstract-technology-background-blur.jpg");
-  background-attachment: fixed;
-  background-size: cover;
+@layer utilities {
+  .text-neon {
+    text-shadow: var(--text-neon);
+  }
 }
 
 #spotlight {
@@ -37,6 +265,6 @@ body {
   background: radial-gradient(
     circle at var(--x) var(--y),
     transparent 10%,
-    rgba(0, 0, 0, 0.20) 20%
+    rgb(var(--color-spotlight) / var(--spotlight-opacity)) 20%
   );
 }

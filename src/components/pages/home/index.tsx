@@ -9,16 +9,18 @@ import SkillsSection from "./sections/skills";
 
 function HomePage() {
   return (
-    <div>
+    <>
       <IntroSection />
-      {/* <AboutSection /> */}
-      <ExperienceSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <EducationSection />
-      <AchievementSection />
-      <ContactSection />
-    </div>
+      <main>
+        {/* <AboutSection /> */}
+        <ExperienceSection />
+        <SkillsSection />
+        <ProjectsSection />
+        <EducationSection />
+        <AchievementSection />
+        <ContactSection />
+      </main>
+    </>
   );
 }
 

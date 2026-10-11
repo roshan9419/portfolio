@@ -1,49 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
+    <!-- Runs before first paint to avoid a theme flash. Storage key must match THEME_STORAGE_KEY in src/utils/theme.ts -->
+    <script>
+      if (localStorage.getItem("theme") === "light") {
+        document.documentElement.classList.replace("dark", "light");
+      }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roshan Kumar – Software Engineer II at Zuora | Full-Stack Developer</title>
     <meta
       name="description"
-      content="Roshan Kumar - A highly skilled Full Stack Developer with experience in web and backend technologies. Explore my portfolio, projects, and resume to get more insights."
+      content="Roshan Kumar is a Software Engineer II at Zuora building payment processing, collection and orchestration systems with Java, React, MySQL and AWS. Explore his experience, projects and resume."
     />
     <meta
       name="keywords"
-      content="Full Stack Developer, Software Engineer, Web Developer, Backend Developer, App Developer, Portfolio, JavaScript, React, Node.js, C#, MySQL, Python, Roshan Kumar"
+      content="Roshan Kumar, Software Engineer, Full Stack Developer, Zuora, Payments, Java, Spring Boot, React, TypeScript, MySQL, AWS, Portfolio"
     />
     <meta name="author" content="Roshan Kumar" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://roshan9419.github.io/portfolio/" />
+    <meta name="theme-color" content="#07060d" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
 
-    <meta
-      property="og:title"
-      content="Roshan Kumar | Full Stack Developer | Portfolio"
-    />
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Roshan Kumar" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://roshan9419.github.io/portfolio/" />
+    <meta property="og:title" content="Roshan Kumar – Software Engineer II at Zuora" />
     <meta
       property="og:description"
-      content="Explore the portfolio of Roshan Kumar, a Full Stack Developer specializing in web development and backend technologies."
+      content="Full-stack engineer on Zuora's Payments team. Experience, projects, skills and resume of Roshan Kumar."
     />
-    <meta
-      property="og:image"
-      content="https://roshan9419.github.io/public-assets/images/me.png"
-    />
-    <meta property="og:url" content="https://roshan9419.github.io/portfolio/" />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://roshan9419.github.io/public-assets/images/me.png" />
+    <meta property="og:image:alt" content="Portrait of Roshan Kumar" />
+    <meta property="profile:first_name" content="Roshan" />
+    <meta property="profile:last_name" content="Kumar" />
 
-    <title>Roshan's Portfolio</title>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Roshan Kumar – Software Engineer II at Zuora" />
+    <meta
+      name="twitter:description"
+      content="Full-stack engineer on Zuora's Payments team. Experience, projects, skills and resume of Roshan Kumar."
+    />
+    <meta name="twitter:image" content="https://roshan9419.github.io/public-assets/images/me.png" />
+    <meta name="twitter:image:alt" content="Portrait of Roshan Kumar" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "url": "https://roshan9419.github.io/portfolio/",
+        "name": "Roshan Kumar – Portfolio",
+        "mainEntity": {
+          "@type": "Person",
+          "@id": "https://roshan9419.github.io/portfolio/#person",
+          "name": "Roshan Kumar",
+          "url": "https://roshan9419.github.io/portfolio/",
+          "image": "https://roshan9419.github.io/public-assets/images/me.png",
+          "jobTitle": "Software Engineer II",
+          "worksFor": { "@type": "Organization", "name": "Zuora", "url": "https://www.zuora.com" },
+          "alumniOf": { "@type": "CollegeOrUniversity", "name": "Lovely Professional University" },
+          "knowsAbout": ["Full-Stack Development", "Payment Systems", "Java", "Spring Boot", "React", "TypeScript", "MySQL", "AWS"],
+          "sameAs": [
+            "https://www.linkedin.com/in/roshank9419/",
+            "https://github.com/roshan9419",
+            "https://www.youtube.com/@ProgrammingTechStudent"
+          ]
+        }
+      }
+    </script>
 
     <link
       rel="icon"
       type="image/x-icon"
       href="https://roshan9419.github.io/public-assets/images/favicon.ico"
     />
+    <link rel="apple-touch-icon" href="https://roshan9419.github.io/public-assets/images/me.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Press+Start+2P&display=swap"
+      onload="this.onload = null; this.rel = 'stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Press+Start+2P&display=swap"
+      />
+    </noscript>
 
     <script
+      defer
       src="https://cdn.counter.dev/script.js"
       data-id="832e49dc-c526-4fcd-81f1-91532fbe47fa"
       data-utcoffset="6"

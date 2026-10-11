@@ -1,5 +1,6 @@
-import { onCleanup, onMount } from "solid-js";
+import { For, onCleanup, onMount } from "solid-js";
 import { Projects } from "./data";
+import { playSwipe } from "../../../../../utils/sound";
 import Swiper from "swiper";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -32,8 +33,9 @@ export default function ProjectSlider(props: {
         modifier: 2.5,
       },
       on: {
-        slideChange(swiper) {
+        realIndexChange(swiper) {
           props.onChange(swiper.realIndex);
+          playSwipe();
         },
       },
     });
@@ -44,22 +46,25 @@ export default function ProjectSlider(props: {
   });
 
   return (
-    <div class="flex-1 h-[390px] max-lg:max-w-full max-w-[700px] bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 shadow-md">
+    <div class="hud-frame flex-1 h-[390px] max-lg:max-w-full max-w-[700px] bg-accent/10 rounded-md backdrop-blur-sm shadow-md">
       <div class="swiper w-full py-12" ref={swiperContainer}>
         <div class="swiper-wrapper">
-          {Projects.map((project) => (
-            <div class="swiper-slide md:w-[500px] max-lg:w-[300px] bg-center bg-cover">
-              <img
-                loading="lazy"
-                src={project.imagePath}
-                width={400}
-                class="max-lg:w-[300px] md:w-[500px]"
-                alt={project.name}
-              />
-            </div>
-          ))}
+          <For each={Projects}>
+            {(project) => (
+              <div class="swiper-slide md:w-[500px] max-lg:w-[300px] bg-center bg-cover">
+                <img
+                  loading="lazy"
+                  src={project.imagePath}
+                  width={500}
+                  height={281}
+                  class="max-lg:w-[300px] md:w-[500px]"
+                  alt={project.name}
+                />
+              </div>
+            )}
+          </For>
         </div>
-        <div class="swiper-pagination"></div>
+        <div class="swiper-pagination" />
       </div>
     </div>
   );

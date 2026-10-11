@@ -1,21 +1,37 @@
-import { JSX } from "solid-js";
+import { JSX, Show } from "solid-js";
 
-export default function GlowingButton({
-  text,
-  onClick,
-  children,
-}: {
+const buttonClass = "arcade-button mt-6 font-pixel text-xs uppercase tracking-widest";
+
+type GlowingButtonProps = {
   text?: string;
-  onClick?: any;
+  href?: string;
+  onClick?: JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent>;
   children?: JSX.Element;
-}) {
+};
+
+export default function GlowingButton(props: GlowingButtonProps) {
+  const face = () => (
+    <span class="arcade-button-face">
+      <span class="arcade-button-arrow" aria-hidden="true" />
+      {props.text}
+      {props.children}
+    </span>
+  );
+
   return (
-    <button
-      onClick={onClick}
-      class="tracking-wider px-5 py-3 mt-5 text-lg transition-colors hover:bg-primary font-bebas flex justify-center items-center text-sky-200 border-2 rounded-full border-sky-200 hover:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_#08f]"
+    <Show
+      when={props.href}
+      fallback={
+        <button onClick={props.onClick} class={buttonClass}>
+          {face()}
+        </button>
+      }
     >
-      {text}
-      {children}
-    </button>
+      {(href) => (
+        <a href={href()} target="_blank" rel="noopener noreferrer" class={buttonClass}>
+          {face()}
+        </a>
+      )}
+    </Show>
   );
 }

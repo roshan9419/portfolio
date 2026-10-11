@@ -3,6 +3,9 @@ import GitHubIcon from "lucide-solid/icons/github";
 import YouTubeIcon from "lucide-solid/icons/youtube";
 import { SocialHandlesConstants } from "../../../../../utils/constants";
 
+const handleClass =
+  "border px-2.5 py-2 rounded-md rotate-45 transition hover:text-accent-foreground hover:shadow-lg";
+
 export default function SocialHandles() {
   return (
     <div class="flex gap-8 max-md:flex-row flex-col top-20 right-20 max-md:right-0 max-md:relative absolute justify-center">
@@ -10,7 +13,8 @@ export default function SocialHandles() {
         aria-label="LinkedIn Profile"
         href={SocialHandlesConstants.LINKEDIN}
         target="_blank"
-        class="border hover:bg-[#0077B5] bg-[#0077B530] border-[#0077B5] px-2.5 py-2 rounded-md rotate-45 transition-[background] hover:shadow-[0_0_2px_#fff,0_0_5px_#0077B5,0_0_15px_#0077B5,0_0_30px_#0077B5]"
+        rel="noopener noreferrer"
+        class={`${handleClass} border-brand-linkedin bg-brand-linkedin/20 hover:bg-brand-linkedin hover:shadow-brand-linkedin/60`}
       >
         <LinkedInIcon class="-rotate-45" />
       </a>
@@ -18,7 +22,8 @@ export default function SocialHandles() {
         aria-label="GitHub Profile"
         href={SocialHandlesConstants.GITHUB}
         target="_blank"
-        class="border hover:bg-[#2b3137] bg-[#2b313730] border-[#2b3137] px-2.5 py-2 rounded-md rotate-45 hover:shadow-[0_0_2px_#fff,0_0_5px_#2b3137,0_0_15px_#2b3137,0_0_30px_#2b3137]"
+        rel="noopener noreferrer"
+        class={`${handleClass} border-brand-github bg-brand-github/20 hover:bg-brand-github hover:shadow-brand-github/60`}
       >
         <GitHubIcon class="-rotate-45" />
       </a>
@@ -26,7 +31,8 @@ export default function SocialHandles() {
         aria-label="YouTube Channel"
         href={SocialHandlesConstants.YOUTUBE}
         target="_blank"
-        class="border hover:bg-[#f00] bg-[#ff000030] border-[#f00] px-2.5 py-2 rounded-md rotate-45 hover:shadow-[0_0_2px_#fff,0_0_5px_#f00,0_0_15px_#f00,0_0_30px_#f00]"
+        rel="noopener noreferrer"
+        class={`${handleClass} border-brand-youtube bg-brand-youtube/20 hover:bg-brand-youtube hover:shadow-brand-youtube/60`}
       >
         <YouTubeIcon class="-rotate-45" />
       </a>
